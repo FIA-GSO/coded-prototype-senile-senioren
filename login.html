@@ -7,14 +7,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="login-bg-decor">
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+  </div>
   <div class="login-container">
     <form class="login-form" action="overview.html" method="get">
-      <h2>Login</h2>
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" required autocomplete="username">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required autocomplete="current-password">
-      <button type="submit">Login</button>
+      <div class="login-logo">
+        <img src="azubi.png" alt="App Logo" />
+      </div>
+      <h2 class="login-title">Willkommen zurück!</h2>
+      <div class="input-group">
+        <label for="username">Benutzername</label>
+        <input type="text" id="username" name="username" required autocomplete="username" placeholder="Dein Benutzername">
+      </div>
+      <div class="input-group">
+        <label for="password">Passwort</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="••••••••">
+      </div>
+      <button type="submit" class="login-btn">Einloggen</button>
     </form>
   </div>
 </body>
