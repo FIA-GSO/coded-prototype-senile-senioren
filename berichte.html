@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Berichtsheft – Berichte Übersicht</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const reports = JSON.parse(localStorage.getItem('berichtsheftReports') || '[]');
+      const list = document.getElementById('reports-list');
+      if (reports.length === 0) {
+        list.innerHTML = '<li>Keine Berichte gespeichert.</li>';
+        return;
+      }
+      reports.forEach((report, idx) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <strong>${report.title || 'Bericht ' + (idx + 1)}</strong>
+          <button onclick="viewReport(${idx})">Details ansehen</button>
+          <button onclick="editReport(${idx})">Bearbeiten</button>
+        `;
+        list.appendChild(li);
+      });
+    });
+
+    function viewReport(idx) {
+      const reports = JSON.parse(localStorage.getItem('berichtsheftReports') || '[]');
+      const report = reports[idx];
+      alert(
+        `Titel: ${report.title || 'Kein Titel'}\n` +
+        `Datum: ${report.date || 'Kein Datum'}\n` +
+        `Inhalt: ${report.content || 'Kein Inhalt'}`
+      );
+    }
+
+    function editReport(idx) {
+      window.location.href = `report.html?edit=${idx}`;
+    }
+  </script>
+</head>
+<body>
+  <h1>Gespeicherte Berichte</h1>
+  <ul id="reports-list"></ul>
+  <a href="overview.html">Zurück zur Übersicht</a>
+</body>
+</html>

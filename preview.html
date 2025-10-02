@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berichtsheft - Vorschau</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <style>
+    .preview-popup {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.25);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .preview-popup.active {
+      display: flex;
+    }
+    .preview-popup-content {
+      background: #fff;
+      padding: 32px 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+      text-align: center;
+      font-size: 1.2rem;
+      color: #2c3e50;
+    }
+    .preview-btn-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .preview-container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    @media (max-width: 600px) {
+      .preview-container {
+        max-width: 98vw;
+        margin: 16px 1vw;
+        padding: 16px 6px;
+      }
+      .preview-popup-content {
+        padding: 20px 8px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <h1 style="text-align:center; color:#2c3e50;">Bericht Vorschau</h1>
+    <div id="report-details">
+      <!-- Dynamically filled with report details via JS -->
+      <p><strong>Berichtsdatum:</strong> <span id="preview-date">-</span></p>
+      <p><strong>Ausbildungsinhalte:</strong> <span id="preview-content">-</span></p>
+      <p><strong>Bemerkungen:</strong> <span id="preview-notes">-</span></p>
+      <!-- Add more fields as needed -->
+    </div>
+    <div class="preview-btn-row">
+      <button id="submit-btn" class="create-report-btn" type="button">Bestätigen</button>
+      <button id="cancel-btn" class="create-report-btn" type="button" style="background:#6c757d;" onclick="window.location.href='overview.html'">Abbrechen</button>
+    </div>
+  </div>
+  <div class="preview-popup" id="success-popup">
+    <div class="preview-popup-content">
+      Bericht erfolgreich versendet
+    </div>
+  </div>
+  <script>
+    // Example: Fill preview fields from localStorage or script.js logic
+    const report = JSON.parse(localStorage.getItem('berichtsheftReport') || '{}');
+    document.getElementById('preview-date').textContent = report.date || '-';
+    document.getElementById('preview-content').textContent = report.content || '-';
+    document.getElementById('preview-notes').textContent = report.notes || '-';
+
+    // Absenden button logic
+    document.getElementById('submit-btn').onclick = function() {
+      document.getElementById('success-popup').classList.add('active');
+      setTimeout(function() {
+        window.location.href = 'overview.html';
+      }, 1500);
+    };
+    // Abbrechen button logic
+    document.getElementById('cancel-btn').onclick = function() {
+      window.location.href = 'overview.html';
+    };
+  </script>
+</body>
+</html>

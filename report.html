@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berichtsheft – Bericht erstellen</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .report-container {
+      max-width: 600px;
+      margin: 32px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 24px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .report-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .report-header select {
+      font-size: 1rem;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #f8f9fa;
+      min-width: 140px;
+    }
+    .report-textarea {
+      width: 100%;
+      min-height: 180px;
+      font-size: 1.1rem;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      background: #f8f9fa;
+    }
+    .report-file {
+      margin-bottom: 8px;
+    }
+    .send-btn {
+      width: 100%;
+      padding: 14px 0;
+      font-size: 1.2rem;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+    .send-btn:hover,
+    .send-btn:focus {
+      background: #0056b3;
+    }
+    @media (max-width: 600px) {
+      .report-container {
+        max-width: 98vw;
+        margin: 12px 1vw;
+        padding: 12px 4px;
+      }
+      .report-header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .send-btn {
+        font-size: 1rem;
+        padding: 12px 0;
+      }
+      .report-textarea {
+        min-height: 120px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="report-container">
+    <form>
+      <div class="report-header">
+        <select name="arbeitsort" aria-label="Arbeitsort/Abteilung">
+          <option value="">Arbeitsort/Abteilung wählen</option>
+          <option value="entwicklung">Entwicklung</option>
+          <option value="produktion">Produktion</option>
+          <option value="verwaltung">Verwaltung</option>
+          <option value="lager">Lager</option>
+        </select>
+        <select name="datum" aria-label="Datum">
+          <option value="">Datum wählen</option>
+          <option value="2025-10-01">01.10.2025</option>
+          <option value="2025-10-02">02.10.2025</option>
+          <option value="2025-10-03">03.10.2025</option>
+        </select>
+      </div>
+      <textarea class="report-textarea" name="bericht" placeholder="Bericht eintragen..." required></textarea>
+      <input class="report-file" type="file" name="attachments" multiple>
+      <button type="button" class="send-btn" onclick="window.location.href='preview.html'">An Ausbilder senden</button>
+    </form>
+    <button type="button" onclick="window.location.href='overview.html'" style="margin-top:12px;background:#6c757d;color:#fff;padding:10px 24px;border:none;border-radius:8px;cursor:pointer;">Abbrechen</button>
+  </div>
+</body>
+</html>
