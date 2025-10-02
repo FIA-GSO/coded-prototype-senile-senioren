@@ -1,45 +1,25 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Berichtsheft Dashboard</title>
+  <title>Berichtsheft - Overview</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="overview-container">
-    <header class="dashboard-header">
-      <div class="logo-box">
-        <img src="azubi.png" alt="Azubi Logo" class="dashboard-logo">
-      </div>
-      <div class="dashboard-header-content">
-        <span class="dashboard-book-icon">📖</span>
-        <span class="dashboard-date" id="dashboard-date"></span>
-        <div class="profile-box">
-          <span class="profile-name">Max Mustermann</span>
-          <span class="profile-role">Azubi</span>
-        </div>
+    <header class="overview-header">
+      <h1>Willkommen im Berichtsheft Dashboard</h1>
+      <div class="user-info">
+        <!-- Placeholder for user info -->
+        <span>Nutzer: Max Mustermann</span>
       </div>
     </header>
-    <div class="welcome-bar">
-      <span>Willkommen im Berichtsheft Dashboard!</span>
-    </div>
-    <main class="dashboard-main">
-      <button class="dashboard-nav-btn" onclick="location.href='report.html'">
-        Bericht erstellen
-      </button>
-      <button class="dashboard-nav-btn" onclick="location.href='berichte.html'">
-        Alle Berichte anzeigen
-      </button>
-      <button class="dashboard-nav-btn" onclick="location.href='preview.html'">
-        Vorschau
-      </button>
+    <main class="overview-main">
+      <button class="create-report-btn" onclick="location.href='report.html'">Bericht erstellen</button>
+      <a href="berichte.html" class="button" style="margin-top:16px;display:inline-block;">Alle Berichte anzeigen</a>
     </main>
   </div>
-  <script>
-    // Set current date in header
-    document.getElementById('dashboard-date').textContent =
-      new Date().toLocaleDateString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-  </script>
 </body>
 </html>
