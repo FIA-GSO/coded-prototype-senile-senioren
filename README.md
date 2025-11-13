@@ -7,6 +7,7 @@
 ![Wireframe](images/FigmaHighFidelity.png)
 ![Wireframe](images/LoginFrame.png)
 ![Anmeldung](images/AnmeldungLaptop.png)
+![Overview](images/overwievLaptop.png)
 ![Index](images/IndexLaptop.png)
 ![Bericht erstellen](images/BerichterstellenLaptop.png)
 ![Bericht Vorschau](images/BerichtVorschau.png)
